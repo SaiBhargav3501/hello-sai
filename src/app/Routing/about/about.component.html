@@ -1,0 +1,13 @@
+<p>about works!</p>
+<button (click)="clickToContact()">Go to contact page</button>
+<button (click)="clickToHomeRelate()">Go to home relative</button>
+<p>
+    tag:{{querytag}}
+</p>
+<p>
+    company:{{querycompany}}
+</p>
+
+<ul *ngFor="let data of allobj |keyvalue">
+    <li>{{data.key}}:{{data.value}}</li>
+</ul>

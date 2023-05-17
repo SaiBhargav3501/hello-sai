@@ -1,0 +1,40 @@
+<form #productsForm="ngForm" (ngSubmit)="addTheProducts(productsForm.value)">
+    <label>Product name</label>
+    <input type="text" name="pname" ngModel/>
+    <label>product desc</label>
+    <input type="text" name="desc" ngModel/>
+    <label>Product price</label>
+    <input type="text" name="price" ngModel/>
+
+    <input  type="submit" value="productdetails">
+</form>
+<table >
+    <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Product desc</th>
+        <th>Product price</th>
+        
+    </tr>
+    <tr *ngIf="allProducts.length <1 && !isFetching">
+        <td colspan="5">No Produts are here Add the Products</td>
+    </tr>
+    <tr *ngIf="errormsg">
+        <td colspan="5">{{errormsg}}</td>
+    </tr>
+    <tr *ngIf="isFetching && !errormsg">
+        <td colspan="5">Loading...</td>
+    </tr>
+    
+    <tr *ngFor="let product of allProducts">
+        <td>{{product.id}}</td>
+        <td>{{product.pname}}</td>
+        <td>{{product.desc}}</td>
+        <td>{{product.price}}</td>
+        <td><button (click)="onDleteProduct(product.id)">Delete</button></td>
+        <td><button (click)="onEditClicked(product.id)">Edit</button></td>
+
+    </tr>
+</table>
+<input  type="submit" value="fetchproductys" (click)="onProductsFetch()">
+<button (click)="onclearProduct()">Clear all the products</button>

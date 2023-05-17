@@ -1,0 +1,87 @@
+<form  [formGroup]="form"  (ngSubmit)="addthedata()" >
+    <div class="all-cont">
+    <div class="flex-cont">
+    <div class="form-group ip-grp">
+        <label for="firstname" class="nameval label">Firstname</label>
+        <input formControlName="firstname" id="firstname" type="text" class="form-control nameval" placeholder="enter your first name">
+        <div *ngIf="firstname?.['touched'] && firstname?.['invalid'] " class="alert alert-danger">
+            <div *ngIf="firstname?.errors?.['required']">user name required</div>
+            
+        </div>
+        <!-- <div [hidden]="submitted==false" class="msg">
+            *Enter your FirstName
+          </div> -->
+    </div>
+    <div class="form-group ip-grp">
+        <label for="lastname" class="nameval label">LastName</label>
+        <input formControlName="lastname" id="lastname" type="text" class="form-control nameval" placeholder="enter your lastname">
+        <div *ngIf="lastname?.['touched'] && lastname?.['invalid'] " class="alert alert-danger">
+            <div *ngIf="lastname?.errors?.['required']"> LastName required</div>
+            
+        </div>
+        <!-- <div [hidden]="submitted==false" class="msg">
+            *Enter your LastName
+          </div> -->
+    </div>
+    </div>
+    <div class="flex-cont">
+    <div class="form-group ip-grp">
+        <label for="email" class="nameval label">Enter your Email</label>
+        <input formControlName="email" id="email" type="Email" class="form-control nameval" placeholder="Enter your Email">
+        <div *ngIf="email?.['touched'] && email?.['invalid'] " class="alert alert-danger">
+            <div *ngIf="email?.errors?.['required']"> Enter valid Mail ID</div>
+            <div *ngIf="email?.errors?.['pattern']"> Enter the valid format</div>
+        </div>
+        <!-- <div [hidden]="submitted==false" class="msg">
+            *Enter your Mail ID
+          </div> -->
+        
+    </div>
+    <div class="form-group ip-grp DOB">
+        <label for="dateofbirth" class="nameval label">DATE OF BIRTH</label>
+        <input formControlName="DOB" id="dateofbirth" type="date" class="form-control nameval" placeholder="select DOB" >
+        <div *ngIf="DOB?.['touched'] && DOB?.['invalid'] " class="alert alert-danger">
+            <div *ngIf="DOB?.errors?.['required']">date of Birth required</div>
+           
+        </div>
+        <!-- <div [hidden]="submitted==false" class="msg">
+            *Enter your DOB
+          </div> -->
+    </div>
+</div>
+<div class="status-cont">
+    <div >
+        <label for="status" >Status</label>
+        <input formControlName="status" id="status"  class="" type="checkbox">
+    </div>
+</div>
+    <div class="btn-cont">
+    <button class="btn btn-primary" type="submit">Submit</button>
+</div>
+</div>
+<div class="table">
+    <table >
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Gmail</th>
+            <th>DOB</th>
+            <th>Status</th>
+            <th> Delete button </th>
+            <th> Update button </th>
+        </tr>
+        <tr *ngFor="let i of data">
+            <td>{{i.firstname}}</td>
+            <td>{{i.lastname}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.DOB}}</td>
+            <td>{{i.status}}</td>
+            <td> <button type="button" (click)="onClickdelete(i.id)"> Delete</button></td>
+            <td> <button type="button" (click)="onClickUpdate(i.id)"> Edit</button></td>
+        
+        </tr>
+
+
+    </table>
+</div>
+</form>

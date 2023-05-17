@@ -1,0 +1,49 @@
+table, th, td {
+    border:1px solid black;
+    padding: 10px;
+  }
+
+
+  .nameval{
+    width:100%;
+  }
+  .msg{
+    color: red;
+  }
+  .flex-cont{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+  }
+  .label{
+    text-align: center;
+  }
+  .ip-grp{
+    margin-right: 10px;
+  }
+  .all-cont{
+    display: flex;
+    flex-direction: column;
+  }
+  .DOB{
+    margin-left: 30px;
+  }
+  .status-cont{
+   
+ display: flex;
+ justify-content: center;
+
+  }
+  .btn{
+    padding: 10px;
+  }
+  .btn-cont{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+  }
+  .table{
+    display: flex;
+    justify-content: center;
+  }

@@ -1,0 +1,18 @@
+<form>
+    <input type="text" class="form-control" (keyup.enter)="addNewTopic(topic)" #topic>
+    <ul class="list-group">
+        <li *ngFor="let topic of form.get('topics')?.value" class="list-group-item" (click)="removetopic(topic)">
+            {{topic}}
+        </li>
+    </ul>
+
+    <ul class="list-group">
+        <li *ngFor="let topic of data" class="list-group-item">
+            {{topic}}
+        </li>
+    </ul>
+    <input type="date" #topicdate class="form-control" (change)="gretVAlueOf(topicdate)">
+    <input type="email" #topiceamil class="form-control" (change)="gretVAlueOf(topiceamil)">
+    <input type="checkbox" #topicactive class="form-control" (change)="gretVAlueOf(topicactive)">
+
+</form>

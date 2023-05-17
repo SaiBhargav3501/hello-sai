@@ -1,0 +1,32 @@
+/* .nav-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.routes-list{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   padding: 20px;
+}
+
+.routes-list{
+    color:currentColor;
+    background-color: transparent;
+
+} */
+
+.routing-all{
+    display: flex;
+    flex-direction:row;
+    justify-content: left;
+}
+.routes-list{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+   padding: 20px;
+}

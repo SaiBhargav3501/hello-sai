@@ -1,0 +1,87 @@
+<form #f="ngForm" (ngSubmit)="submitForm(f)">
+    <div ngModelGroup="contact" >
+        <div class="form-group"> 
+            <label for="firstname">Firstname</label>
+            <input 
+            ngModel 
+            required 
+            name="firstName" 
+            minlength="3" 
+            maxlength="15" 
+            pattern="sai" 
+            #firstName="ngModel" 
+            (change)="log(firstName)" 
+            type="text" 
+            id="firstname" 
+            class="form-control">
+            <div 
+            class="alert alert-danger" 
+            *ngIf="firstName.touched && !firstName.valid">
+                <div 
+                class="alert alert-danger" 
+                *ngIf="firstName.errors ?. ['required']" >
+                Name is requiered
+            </div>
+                <div 
+                class="alert alert-danger" 
+                *ngIf="firstName.errors ?.['minlength']" >
+                Name required min 3 characters
+            </div>
+                <div class="alert alert-danger" 
+                *ngIf="firstName.errors ?.['minlength']" >
+                Name is requiered {{firstName.errors?.['minlength'].requiredLength}} 
+                length
+            </div>
+                <div class="alert alert-danger" 
+                *ngIf="firstName.errors ?.['maxlength']" >
+                Name should be max 4 characters
+            </div>
+                <div class="alert alert-danger"
+                 *ngIf="firstName.errors ?. ['pattern']" >
+                 enter correct pattern
+                </div>
+            </div>
+        </div>  
+
+    </div>
+    
+    <div class="form-group">
+        <label for="comment-box">Comment</label>
+        <textarea  name="comment" 
+        ngModel id="comment-box" 
+        #comment="ngModel" 
+        firstComment="comment" 
+        cols="30" rows="10" 
+        class="form-control"></textarea>
+    </div>
+    <div class="checkbox">
+        <label>
+            select the 
+            <input type="checkbox" ngModel 
+            name="isSubscribed">
+        </label>
+    </div>
+    <div class="form-group"> 
+        <label for="contactMethod">Select the contact Method</label>
+        <select ngModel name="metodOfCommmunicaton" 
+        id="contactMethod" 
+        class="form-control">
+            <option value=""></option>
+            <option *ngFor="let method of contactMethods" 
+            [value]="method.id">{{method.name}}</option> 
+        </select>
+    </div>
+    <div class="radio"> 
+        <label *ngFor="let method of contactMethods">
+            <input ngModel 
+            type="radio" 
+            name="contactMethod" 
+            [value]="method.id">
+            {{method.name}}
+        </label>
+    </div>
+    <p>{{f.value|json}}</p>
+    <button class="btn btn-primary" [disabled]="!f.valid"> submit</button>
+
+
+</form>
